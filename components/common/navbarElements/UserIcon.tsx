@@ -8,7 +8,7 @@ import {
 } from "@/components/ui/navigation-menu"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Separator } from '@/components/ui/separator'
-import { ChevronRight, SettingsIcon } from 'lucide-react'
+import { ChevronRight, LogOut, SettingsIcon } from 'lucide-react'
 import Link from 'next/link'
 import { useParams } from 'next/navigation'
 
@@ -51,9 +51,11 @@ const UserIcon = () => {
                     {
                         profileList.map((profile, index) => (
                             <li key={index} className="flex flex-col items-center gap-2 p-2 hover:bg-[#D6D3D1] cursor-pointer" onClick={() => handleProfileClick(profile.fullname)}>
-                                <Avatar>
-                                    <AvatarFallback>{profile.fullname.charAt(0)}</AvatarFallback>
-                                </Avatar>
+                                <div className='rounded-full bg-[#EEEEEE] p-2'>
+                                    <Avatar>
+                                        <AvatarFallback>{profile.fullname.charAt(0)}</AvatarFallback>
+                                    </Avatar>
+                                </div>
                                 <span className='font-semibold'>{profile.fullname}</span>
                                 <span className={`text-sm ${activeProfile === profile.fullname ? 'gradient-text' : ''}`}>{activeProfile === profile.fullname ? 'Active Profile' : 'Switch Profile'}</span>
                             </li>
@@ -72,17 +74,20 @@ const UserIcon = () => {
                        </Link>
                     </OtherTabs>
                     <OtherTabs>
-                       <div className='flex items-center gap-4'>
+                        <Link href={`/${currentLang}/helpandsupport`} className='flex items-center gap-4'>
                             <div className='rounded-full bg-[#EEEEEE] p-2'>
                                 <SettingsIcon color='#C79438' size={18} className="" />
                             </div>
                             
                             <span>Help and Support</span>
-                       </div>
+                       </Link>
                     </OtherTabs>
                     <OtherTabs>
                        <div className='flex items-center gap-4'>
-                            <SettingsIcon color='#C79438' size={16} className="mr-2 rounded-full " />
+                            <div className='rounded-full bg-[#EEEEEE] p-2'>
+                                <LogOut color='#C79438' size={16} className="mr-2 rounded-full " />
+                            </div>
+                            
                             <span>Logout</span>
                        </div>
                     </OtherTabs>

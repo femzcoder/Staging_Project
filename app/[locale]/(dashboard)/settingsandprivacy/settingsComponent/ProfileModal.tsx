@@ -106,8 +106,8 @@ function ProfileModal({
 
 
             <DialogFooter>
-              <Button className="text-white w-full" type="submit">
-                Update Profile
+              <Button className="text-white " type="submit">
+                Invite a Friend
               </Button>
             </DialogFooter>
           </form>

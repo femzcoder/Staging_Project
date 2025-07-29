@@ -54,6 +54,10 @@ const ContestPerformance = () => {
                     "#288D27",
                 ]}/>                
             </div>
+
+            <div className='w-full flex items-center space-y-2'>
+                <span className='text-[14px] text-[#595657] text-center'>Your team is in the 30th percentile for innovation and collaboration</span>
+            </div>
   
     </BasicCard>
   )

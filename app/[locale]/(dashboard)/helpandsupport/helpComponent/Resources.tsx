@@ -1,11 +1,9 @@
-import { BasicCard, BasicCard2 } from "@/components/Cards"
-import { FormInput } from "@/components/common/FormInput"
-import { TitleText } from "@/components/Typo"
+import { BasicCard2 } from "@/components/Cards"
+import { BlueText, TitleText } from "@/components/Typo"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
 import { Dialog, DialogContent,  DialogHeader } from "@/components/ui/dialog"
 import { ArrowLeft } from "lucide-react"
 import Image from "next/image"
-import { useState } from "react"
 
 function ResorcesModal({
   open,
@@ -14,31 +12,11 @@ function ResorcesModal({
   open: boolean
   onOpenChange: (open: boolean) => void
 }) {
-  const [profileData, setProfileData] = useState({
-    id: "0000",
-    f_name: "",
-    l_name: "",
-    d_name: "",
-    bio: "",
-    since: "",
-  })
 
-  const handleChange = (field: string, value: string) => {
-    setProfileData((prev) => ({
-      ...prev,
-      [field]: value,
-    }))
-  }
-
-  // const handleSubmit = (e: React.FormEvent) => {
-  //   e.preventDefault()
-  //   console.log("Profile submitted:", profileData)
-  //   onOpenChange(false)
-  // }
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="sm:max-w-[500px] h-[66vh] flex flex-col bg-white border-none rounded-2xl p-0">
+      <DialogContent className=" flex flex-col bg-white border-none rounded-2xl p-0">
         {/* Header */}
         <DialogHeader className="bg-[#FAFAF9] shadow-xl py-2">
           <div className="flex items-center gap-1 px-4">
@@ -52,7 +30,6 @@ function ResorcesModal({
             text="Control what your community sees"
             style="text-[#2D2D2D] text-lg font-medium"
           />
-
             <Accordion
               type="single"
               collapsible
@@ -69,7 +46,7 @@ function ResorcesModal({
                     <ul className="list-disc">
                       <li className="flex flex-col">
                         <span>Article 1</span>
-                        <a href="https://onetime.com"></a>
+                        <a href="https://onetime.com"><BlueText text='https://onetime.com' /></a>
                       </li>
                     </ul>
 
@@ -82,9 +59,8 @@ function ResorcesModal({
                     </div>
                   </AccordionTrigger>
                   <AccordionContent className="flex flex-col gap-4 text-balance px-4">
-                    <ul>
-                      <li className="flex items-center">
-                        <BasicCard2>
+                    <div>
+                        <BasicCard2 style="flex items-center gap-2 ">
                           <Image
                             src ={''}
                             width={10}
@@ -92,74 +68,16 @@ function ResorcesModal({
                             alt=""
                           />
                           <div>
-                            <p>Introduction to the App</p>
-                            <span>Learn the basics of using our app</span>
+                            <p className="font-semibold text-[14px]">Introduction to the App</p>
+                            <span className="text-sm text-gray-500">Learn the basics of using our app</span>
                           </div>
                         </BasicCard2>
-
-                      </li>
-                    </ul>
+                    </div>
 
                   </AccordionContent>
                 </AccordionItem>
             </Accordion>
 
-          {/* <form onSubmit={handleSubmit} className="space-y-4">
-            <FormInput
-            name="id"
-            type="text"
-            label="Y!elds ID"
-            value={profileData.id}
-            disabled={true}
-            />
-
-            <FormInput
-            name="f_name"
-            type="text"
-            label="First Name"
-            value={profileData.f_name}
-            onChange={(e) => handleChange("f_name", e.target.value)}
-            />
-
-            <FormInput
-            name="l_name"
-            type="text"
-            label="Last Name"
-            value={profileData.l_name}
-            onChange={(e) => handleChange("l_name", e.target.value)}
-            />
-
-            <FormInput
-            name="d_name"
-            type="text"
-            label="Display Name"
-            value={profileData.d_name}
-            onChange={(e) => handleChange("d_name", e.target.value)}
-            />
-
-            <FormInput
-            name="bio"
-            type="text"
-            label="Bio"
-            value={profileData.bio}
-            onChange={(e) => handleChange("bio", e.target.value)}
-            />
-
-            <FormInput
-            name="since"
-            type="text"
-            label="Member Since"
-            value={profileData.since}
-            onChange={(e) => handleChange("since", e.target.value)}
-            />
-
-
-            <DialogFooter>
-              <Button className="text-white w-full" type="submit">
-                Update Profile
-              </Button>
-            </DialogFooter>
-          </form> */}
         </div>
       </DialogContent>
     </Dialog>

@@ -7,8 +7,8 @@ import React, { useState } from 'react'
 import ProfileModal from './settingsComponent/ProfileModal'
 import ParticularsModal from './settingsComponent/ParticularsModal'
 import PasswordModal from './settingsComponent/PasswordModal'
-import { on } from 'events'
 import PolicyModal from './settingsComponent/PolicyModal'
+import SubscriptionModal from './settingsComponent/SubscriptionModal'
 
 const SettingsAndPrivacy = () => {
 
@@ -16,6 +16,7 @@ const SettingsAndPrivacy = () => {
     const [openParticulars, setOpenParticulars] = useState<boolean>(false)
     const [openPassword, setOpenPassword] = useState<boolean>(false)
     const [openPolicy, setOpenPolicy] = useState<boolean>(false)
+    const [openSubscription, setOpenSubscription] = useState<boolean>(false)
 
     const settingsOptions=[
         {
@@ -31,7 +32,7 @@ const SettingsAndPrivacy = () => {
         {
             icon:"/icons/Iconssp3.svg",
             title:'Subscriptions',
-            handleClick:()=>{}
+            handleClick:()=>{setOpenSubscription(true)}
         },
         {
             icon:"/icons/Vectorsp4.svg",
@@ -94,6 +95,10 @@ const SettingsAndPrivacy = () => {
         <PolicyModal
             onOpenChange={setOpenPolicy}
             open={openPolicy}
+        />
+        <SubscriptionModal
+            onOpenChange={setOpenSubscription}
+            open={openSubscription}
         />
     </>
 

@@ -98,7 +98,7 @@ const Forum = () => {
 export default Forum
 
 
-const StarCard = ({title, rating}:{title:String, rating:number}) =>{
+const StarCard = ({title, rating}:{title:string, rating:number}) =>{
   return(
     <div>
       <span>{title}</span>
@@ -108,6 +108,8 @@ const StarCard = ({title, rating}:{title:String, rating:number}) =>{
         <Star size={18} color='#FFB400'/>
         <Star size={18} color='rgba(89, 86, 87, 0.3)'/>
         <Star size={18} color='rgba(89, 86, 87, 0.3)'/>
+
+        <p>{rating}</p>
         {/* {[...Array(5)].map((_, index) => (
           <Star key={index} size={18} color={index < rating ? 'text-yellow-500' : 'text-gray-300'} />
         ))} */}

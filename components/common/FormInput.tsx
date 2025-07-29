@@ -8,6 +8,7 @@ import PhoneInput from "react-phone-number-input/input"
 import 'react-phone-number-input/style.css'
 import React, { useState } from "react"
 import { EyeIcon, EyeOffIcon } from "lucide-react"
+import { Textarea } from "../ui/textarea"
 
 interface BaseProps {
   label: string
@@ -116,6 +117,49 @@ export const FormSelect = ({
   </div>
 )
 
+
+interface TextAreaProps extends BaseProps, React.TextareaHTMLAttributes<HTMLTextAreaElement> {}
+
+export const FormTextArea = ({
+  label,
+  name,
+  error,
+  helperText,
+  isImportant = false,
+  className,
+  ...props
+}: TextAreaProps) => (
+  <div className="space-y-2">
+    <Label htmlFor={name}>
+      {label}
+      {isImportant && <span className="text-sm font-bold text-red-600">*</span>}
+    </Label>
+    <Textarea
+      id={name}
+      name={name}
+      className={cn(
+        "border border-[#F2F1F1] outline-0 rounded-[8px] outline-none focus-visible:ring-2 focus-visible:ring-ring bg-[#F2F1F1]",
+        error && "border-destructive",
+        className
+      )}
+      aria-invalid={!!error}
+      {...props}
+    />
+    {error
+      ? (
+        <p className="text-[12px] text-red-600">
+          {typeof error === "string" ? error : error?.message}
+        </p>
+      )
+      : helperText
+        ? (
+          <p className="text-[12px] text-muted-foreground">{helperText}</p>
+        )
+        : null}
+  </div>
+)
+
+
 interface CheckboxProps extends BaseProps {
   checked: boolean
   onChange: (checked: boolean) => void
@@ -189,10 +233,17 @@ export const FormRadioGroup = ({
   </div>
 )
 
-interface PhoneInputProps extends BaseProps {
-  value: string
-  onChange: (value: string) => void
-  placeholder?: string
+
+
+
+interface PhoneInputProps {
+  label: string;
+  name: string;
+  value: Value;
+  onChange: (value: Value) => void;
+  error?: { message: string };
+  helperText?: string;
+  placeholder?: string;
 }
 
 export const FormPhoneInput = ({
@@ -210,6 +261,7 @@ export const FormPhoneInput = ({
       id={name}
       name={name}
       international
+      countryCallingCodeEditable={true}
       defaultCountry="NG"
       value={value}
       onChange={onChange}
@@ -218,6 +270,10 @@ export const FormPhoneInput = ({
         "w-full border rounded px-3 py-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring",
         error && "border-destructive focus-visible:ring-destructive"
       )}
+      countrySelectProps={{
+        className:
+          "bg-transparent px-2 py-1 mr-2 border-r outline-none focus:ring-0",
+      }}
     />
     {error ? (
       <p className="text-sm text-destructive">{error.message}</p>
@@ -225,4 +281,4 @@ export const FormPhoneInput = ({
       <p className="text-sm text-muted-foreground">{helperText}</p>
     ) : null}
   </div>
-)
+);
