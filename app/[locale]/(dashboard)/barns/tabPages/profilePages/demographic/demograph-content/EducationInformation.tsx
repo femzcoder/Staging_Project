@@ -8,19 +8,13 @@ import {
   useFieldArray,
 } from "react-hook-form"
 import { Button } from "@/components/ui/button"
+import { ProfileFormValues } from "@/lib/types"
 
-type FormValues = {
-  degree: string
-  languages: {
-    name: string
-    level: "basic" | "fluent"
-  }[]
-}
 
 type Props = {
-  register: UseFormRegister<FormValues>
-  control: Control<FormValues>
-  errors: FieldErrors<FormValues>
+  register: UseFormRegister<ProfileFormValues>
+  control: Control<ProfileFormValues>
+  errors: FieldErrors<ProfileFormValues>
 }
 
 const languageOptions = [

@@ -3,6 +3,7 @@
 import React from "react";
 import { Controller, Control, FieldErrors } from "react-hook-form";
 import { FormInput, FormSelect } from "@/components/common/FormInput";
+import { NeedsFormValues } from "@/lib/types";
 
 type Option = { label: string; value: string };
 
@@ -26,8 +27,8 @@ type FormValues = {
 };
 
 type Props = {
-  control: Control<FormValues>;
-  errors: FieldErrors<FormValues>;
+  control: Control<NeedsFormValues>;
+  errors: FieldErrors<NeedsFormValues>;
 };
 
 const SavingsandInvestment = ({ control, errors }: Props) => {

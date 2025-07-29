@@ -1,57 +1,68 @@
-"use client"
+"use client";
 
-import { BasicCard } from "@/components/Cards"
+import { BasicCard } from "@/components/Cards";
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from "@/components/ui/accordion"
-import { useForm, SubmitHandler } from "react-hook-form"
-import { Button } from "@/components/ui/button"
-import ProspectNeed from "./needs-content/ProspectNeeds"
-import SavingsandInvestment from "./needs-content/SavingsandInvestment"
-import CriticalIllness from "./needs-content/CriticalIllness"
-import { useState } from "react"
+} from "@/components/ui/accordion";
+import { useForm, SubmitHandler } from "react-hook-form";
+import { Button } from "@/components/ui/button";
+import ProspectNeed from "./needs-content/ProspectNeeds";
+import SavingsandInvestment from "./needs-content/SavingsandInvestment";
+import CriticalIllness from "./needs-content/CriticalIllness";
+import { useState } from "react";
+import { NeedsFormValues } from "@/lib/types";
 
-type FormValues = {
-  wealthAccumulation: string[]
-  protection: string[]
-}
+// ✅ Unified FormValues for the entire form
 
 
 const Needs = () => {
+  const [isPreview, setIsPreview] = useState<boolean>(false);
 
-  const [isPreview, setIsPreview] = useState<boolean>(false)
-
+  // ✅ All form fields are typed here
   const {
     control,
     handleSubmit,
     formState: { errors },
-  } = useForm<FormValues>()
+  } = useForm<NeedsFormValues>({
+    defaultValues: {
+      wealthAccumulation: [],
+      protection: [],
+      beneficiary: "",
+      calculationType: "",
+      amountNeeded: 0,
+      yearsNeeded: 0,
+      totalAmountNeeded: 0,
+      c_beneficiary: '',
+      c_calculationType: '',
+      c_amountNeeded: 0,
+      c_yearsNeeded: 0,
+      c_liabilities: '',
+      c_existingSupport: '',
+      c_totalAmountNeeded: 0,
+    },
+  });
 
-  const onSubmit: SubmitHandler<FormValues> = (data) => {
-    console.log("Form Submitted:", data)
-  }
+  const onSubmit: SubmitHandler<NeedsFormValues> = (data) => {
+    console.log("Form Submitted:", data);
+  };
 
   const accordionData = [
     {
       title: "Prospect Needed",
-    //   date: "Created on: 17 Feb 25",
       content: <ProspectNeed control={control} errors={errors} />,
     },
     {
       title: "Savings & Investment",
-      // date: "Created on: 17 Feb 25",
       content: <SavingsandInvestment control={control} errors={errors} />,
     },
     {
       title: "Critical Illness",
-      // date: "Created on: 17 Feb 25",
-      content:<CriticalIllness control={control} errors={errors} />,
+      content: <CriticalIllness control={control} errors={errors} />,
     },
-    
-  ]
+  ];
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
@@ -66,7 +77,7 @@ const Needs = () => {
             <AccordionItem
               key={id}
               className="border-none space-y-3"
-              value={!isPreview?`item-${id}`:'item'}
+              value={!isPreview ? `item-${id}` : "item"}
             >
               <AccordionTrigger className="border shadow-lg border-[#F2F1F1] rounded-[12px] px-3">
                 <div>
@@ -81,23 +92,33 @@ const Needs = () => {
         </Accordion>
       </BasicCard>
 
-
       <div>
-        {
-          !isPreview ?
-          <Button className="rounded-[8px] text-white" onClick={()=>setIsPreview(true)} type="submit">Preview</Button>:
+        {!isPreview ? (
+          <Button
+            className="rounded-[8px] text-white"
+            onClick={() => setIsPreview(true)}
+            type="submit"
+          >
+            Preview
+          </Button>
+        ) : (
           <div className="flex items-center justify-between">
-            <Button className="rounded-[8px]" onClick={()=>setIsPreview(false)} variant={'secondary'} type="submit">Edit</Button>  
-            <Button className="rounded-[8px] text-white" type="submit">Save</Button>      
-          </div>             
-        }
-          
-   
+            <Button
+              className="rounded-[8px]"
+              onClick={() => setIsPreview(false)}
+              variant={"secondary"}
+              type="button"
+            >
+              Edit
+            </Button>
+            <Button className="rounded-[8px] text-white" type="submit">
+              Save
+            </Button>
+          </div>
+        )}
       </div>
-
-
     </form>
-  )
-}
+  );
+};
 
-export default Needs
+export default Needs;

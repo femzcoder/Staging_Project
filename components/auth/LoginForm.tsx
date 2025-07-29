@@ -13,7 +13,7 @@ import {
 } from "@/components/ui/card"
 import { FormInput } from "../common/FormInput"
 import Link from "next/link"
-import { redirect, useParams } from "next/navigation"
+import { redirect } from "next/navigation"
 import Image from "next/image"
 
 type LoginFormInputs = {
@@ -31,8 +31,8 @@ export function LoginForm({
     formState: { errors },
   } = useForm<LoginFormInputs>()
 
-  const params = useParams()
-  const currentLang = params?.locale as string;
+  // const params = useParams()
+  // const currentLang = params?.locale as string;
   const [loading, setLoading] = useState(false)
 
   const validatePasswordStrength = (value: string) => {
@@ -46,7 +46,7 @@ export function LoginForm({
     setLoading(true)
     console.log(data)
 
-    redirect(`/${currentLang}/${'community'}`)
+    redirect(`/${'community'}`)
   }
 
   return (
@@ -136,7 +136,7 @@ export function LoginForm({
               {/* Footer */}
               <div className="mt-4 text-center text-sm">
                 Don&apos;t have an account?{" "}
-                <Link href={`/${currentLang}/signup`} className="underline underline-offset-4 gradient-text font-semibold">
+                <Link href={`/signup`} className="underline underline-offset-4 gradient-text font-semibold">
                   Sign up
                 </Link>
               </div>

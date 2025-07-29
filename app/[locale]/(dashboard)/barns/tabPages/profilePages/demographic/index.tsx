@@ -15,6 +15,7 @@ import PersonalInformation from "./demograph-content/PersonalInformation"
 import ContactInformation from "./demograph-content/ContactInformation"
 import CitizenInformation from "./demograph-content/CitizenInformation"
 import EducationInformation from "./demograph-content/EducationInformation"
+import { ProfileFormValues } from "@/lib/types"
 
 type FormValues = {
   occupation: string
@@ -34,7 +35,31 @@ const Demographic = () => {
     handleSubmit,
     control,
     formState: { errors },
-  } = useForm<FormValues>()
+  } = useForm<ProfileFormValues>({
+    defaultValues: {
+      occupation: '',
+      employer: '',
+      citizen_status: '',
+      country: '',
+      province: '',
+      city: '',
+      id_method: '',
+      id_number: '',
+      degree: '',
+        firstname: '',
+      lastname: '',
+      gender: '',
+      marital_status: '',
+      dob: '',
+        phone: '',
+      email: '',
+      address: '',
+      languages: [{
+        name: 'English',
+        level: "basic" 
+      }]
+    }
+  })
 
   const onSubmit: SubmitHandler<FormValues> = (data) => {
     console.log("Form Submitted:", data)
@@ -49,7 +74,7 @@ const Demographic = () => {
     {
       title: "Contact Information",
       date: "Created on: 17 Feb 25",
-      content: <ContactInformation register={register} errors={errors} />,
+      content: <ContactInformation control={control} register={register} errors={errors} />,
     },
     {
       title: "Citizen Information",
@@ -60,7 +85,7 @@ const Demographic = () => {
       title: "Employment Information",
       date: "Created on: 17 Feb 25",
       content: (
-        <EmploymentInformation register={register} errors={errors} />
+        <EmploymentInformation control={control} register={register} errors={errors} />
       ),
     },
     {

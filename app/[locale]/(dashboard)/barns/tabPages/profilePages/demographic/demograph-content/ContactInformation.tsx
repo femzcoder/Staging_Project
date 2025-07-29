@@ -3,17 +3,12 @@ import { Controller, Control, FieldErrors, UseFormRegister } from "react-hook-fo
 import { FormInput } from "@/components/common/FormInput"
 import PhoneInput from "react-phone-number-input"
 import "react-phone-number-input/style.css"
-
-type FormValues = {
-  phone: string
-  email: string
-  address: string
-}
+import { ProfileFormValues } from "@/lib/types"
 
 type Props = {
-  register: UseFormRegister<FormValues>
-  control: Control<FormValues>
-  errors: FieldErrors<FormValues>
+  register: UseFormRegister<ProfileFormValues>
+  control: Control<ProfileFormValues>
+  errors: FieldErrors<ProfileFormValues>
 }
 
 const ContactInformation = ({ register, control, errors }: Props) => {

@@ -1,20 +1,13 @@
 // components/demograph-content/EmploymentInformation.tsx
 import { FormInput, FormSelect } from "@/components/common/FormInput"
+import { ProfileFormValues } from "@/lib/types"
 import { Controller, UseFormRegister, FieldErrors, Control } from "react-hook-form"
 
-type FormValues = {
-  citizen_status: string
-  country: string
-  province: string
-  city: string
-  id_method: string
-  id_number: string
-}
 
 type Props = {
-  register: UseFormRegister<FormValues>
-  control: Control<FormValues>
-  errors: FieldErrors<FormValues>
+  register: UseFormRegister<ProfileFormValues>
+  control: Control<ProfileFormValues>
+  errors: FieldErrors<ProfileFormValues>
 }
 
 const CitizenInformation = ({ register, control, errors }: Props) => {

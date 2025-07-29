@@ -8,13 +8,13 @@ import { Message } from '@/lib/types'
 import { ChevronDown } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
-import { useParams } from 'next/navigation'
+// import { useParams } from 'next/navigation'
 import React, { useState } from 'react'
 
 const AnalysisIncome = () => {
   const [open, setOpen] = useState(false);
-    const params = useParams()
-    const currentLang = params?.locale as string;
+    // const params = useParams()
+    // const currentLang = params?.locale as string;
   const [messages, setMessages] = useState<Message[]>([
     {
       id: 1,
@@ -30,7 +30,7 @@ const AnalysisIncome = () => {
             <li>Get equipped on business/commercial insurance</li>
             <li>Run worksite events</li>
         </ol>
-        <Link href={`/${currentLang}/project`}>
+        <Link href={`/project`}>
             <PurpleButton styles='w-full' text='Create Project'/>
         </Link>
             

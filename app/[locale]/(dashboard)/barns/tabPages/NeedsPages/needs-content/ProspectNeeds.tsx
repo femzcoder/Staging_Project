@@ -1,6 +1,7 @@
 import { Controller, Control, FieldErrors } from "react-hook-form";
 import { FormCheckbox } from "@/components/common/FormInput";
 import { ActionText } from "@/components/Typo";
+import { NeedsFormValues } from "@/lib/types";
 
 interface CategoryType {
   label: string;
@@ -35,8 +36,8 @@ const categories: CategoryType[] = [
 ];
 
 type Props = {
-  control: Control<FormValues>;
-  errors: FieldErrors<FormValues>;
+  control: Control<NeedsFormValues>;
+  errors: FieldErrors<NeedsFormValues>;
 };
 
 const ProspectNeed = ({ control, errors }: Props) => {
