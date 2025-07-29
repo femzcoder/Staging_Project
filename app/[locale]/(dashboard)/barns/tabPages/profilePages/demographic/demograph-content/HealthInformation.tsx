@@ -1,6 +1,6 @@
 // components/demograph-content/EmploymentInformation.tsx
 import { FormSelect } from "@/components/common/FormInput"
-import { Controller, UseFormRegister, FieldErrors, Control } from "react-hook-form"
+import { Controller, FieldErrors, Control } from "react-hook-form"
 
 type FormValues = {
   recently_smoked: string

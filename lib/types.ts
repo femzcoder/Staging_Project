@@ -16,6 +16,7 @@ export type TabItem = {
 
 export type PrimaryTabContainerProps = {
   TabData: TabItem[];
+  hasAssistant?: boolean;
 };
 
 export type Message = {
@@ -35,4 +36,21 @@ export type ChatModalProps = {
   messages: Message[];
   user: User;
   onSendMessage?: (text: string) => void;
+};
+
+export type OwnPostProps = {
+  icon: string;
+  name?: string;
+  time: string;
+  title?: string;
+  description?: string;
+  tags?: string[];
+  likeCount?: number;
+  commentCount?: number;
+  repostCount?: number;
+  engagementCount?: number;
+  handleLike?: () => void;
+  handleComment?: () => void;
+  handleRepost?: () => void;
+  handleEngagement?: () => void;
 };

@@ -3,14 +3,11 @@
 import "./ChatbotUI.css";
 import {
   MessageSquare,
-  X,
-  Send,
   Maximize2,
   Minimize2,
   ArrowLeft,
   EllipsisVertical,
   Search,
-  LucideSend,
   Mic,
   Plus,
 } from "lucide-react";

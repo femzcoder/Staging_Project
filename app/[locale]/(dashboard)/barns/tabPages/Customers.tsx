@@ -1,8 +1,8 @@
-import { BasicCard, InsightWarningCard, InteractionCard, ProfileCategoryCard } from '@/components/Cards'
+import { BasicCard, EmptyState, InsightWarningCard, InteractionCard, ProfileCategoryCard } from '@/components/Cards'
 import { FlexContainer, Grid2Container } from '@/components/Container'
 import { PlanConverstaionModal } from '@/components/conversationPlanner/PlanConversation'
 import { AddProspectButton } from '@/components/OtherButtons'
-import { LinkText, PurpleText, TextWithIcon } from '@/components/Typo'
+import { LinkText, PurpleText, TextWithIcon, TitleText } from '@/components/Typo'
 import { Button } from '@/components/ui/button'
 import {
   DropdownMenu,
@@ -119,24 +119,33 @@ const Customers = () => {
 
 
             </div>
-              <Image src="/images/Graph.png" alt="Peer Comparison" width={300} height={200} className="w-full h-auto mb-4" />
+              <EmptyState/>
+              {/* <Image src="/images/Graph.png" alt="Peer Comparison" width={300} height={200} className="w-full h-auto mb-4" /> */}
           </BasicCard>
         </Grid2Container>
 
         <BasicCard style=" border border-[#E7E5E4]">
-          <Grid2Container>
+          <TitleText text="Interactions" style="mb-4" />
+          
               {
-                  InteractionCardData.map((item, index) => (
-                      <InteractionCard
-                          key={index}
-                          title={item.title}
-                          statusText={item.statusText}
-                          date={item.date}
-                      />
-                  ))
+                InteractionCardData.length === 0 ? (
+                  <EmptyState />
+                ) : ( 
+                  <Grid2Container>
+                    {
+                    InteractionCardData.map((item, index) => (
+                        <InteractionCard
+                            key={index}
+                            title={item.title}
+                            statusText={item.statusText}
+                            date={item.date}
+                        />
+                    ))}
+                </Grid2Container>
+                )
               }
 
-          </Grid2Container>
+
 
         </BasicCard>
       </div>  
@@ -152,6 +161,12 @@ export default Customers
 const ProfileCategoryCardData = [
   {
     title: "Demographic",
+    imageUrl: "/icons/cat1.png",
+    content: <Demographic/>,
+    isActive: true,
+  },
+  {
+    title: "Career",
     imageUrl: "/icons/cat1.png",
     content: <Demographic/>,
     isActive: true,
@@ -175,12 +190,17 @@ const ProfileCategoryCardData = [
     isActive: false,
   },
   {
-    title: "Photos/Videos",
+    title: "Gallery",
     imageUrl: "/icons/cat5.png",
     isActive: false,
   } ,
   {
     title: "Reports",
+    imageUrl: "/icons/cat6.png",
+    isActive: false,
+  },
+  {
+    title: "Others",
     imageUrl: "/icons/cat6.png",
     isActive: false,
   }

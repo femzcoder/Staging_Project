@@ -1,24 +1,38 @@
-"use client"
+"use client";
 
-import React from "react"
-import { Controller } from "react-hook-form"
-import { FormInput, FormSelect } from "@/components/common/FormInput"
+import React from "react";
+import { Controller, Control, FieldErrors } from "react-hook-form";
+import { FormInput, FormSelect } from "@/components/common/FormInput";
 
-type Option = { label: string; value: string }
+type Option = { label: string; value: string };
 
 const beneficiaryOptions: Option[] = [
   { label: "Myself", value: "self" },
   { label: "Spouse", value: "spouse" },
   { label: "Children", value: "children" },
-]
-
+];
 
 const calculationOptions: Option[] = [
   { label: "Simple Interest", value: "simple" },
   { label: "Compound Interest", value: "compound" },
-]
+];
 
-const CriticalIllness = ({ control, errors }: any) => {
+type FormValues = {
+  beneficiary: string;
+  calculationType: string;
+  amountNeeded: number;
+  yearsNeeded: number;
+  liabilities: string;
+  existingSupport: string;
+  totalAmountNeeded: number;
+};
+
+type Props = {
+  control: Control<FormValues>;
+  errors: FieldErrors<FormValues>;
+};
+
+const CriticalIllness = ({ control, errors }: Props) => {
   return (
     <div className="space-y-4">
       {/* Beneficiary */}
@@ -36,7 +50,7 @@ const CriticalIllness = ({ control, errors }: any) => {
         )}
       />
 
-      {/* Duration of Loan */}
+      {/* Years Needed for Funds */}
       <Controller
         name="amountNeeded"
         control={control}
@@ -55,7 +69,7 @@ const CriticalIllness = ({ control, errors }: any) => {
         )}
       />
 
-      {/* Choice of Calculation */}
+      {/* Calculation Type */}
       <Controller
         name="calculationType"
         control={control}
@@ -70,7 +84,7 @@ const CriticalIllness = ({ control, errors }: any) => {
         )}
       />
 
-      {/* Amount Needed */}
+      {/* Annual Amount Needed */}
       <Controller
         name="amountNeeded"
         control={control}
@@ -108,13 +122,11 @@ const CriticalIllness = ({ control, errors }: any) => {
         )}
       />
 
+      {/* Liabilities */}
       <Controller
         name="liabilities"
         control={control}
-        rules={{
-          required: "Please enter any liabilities.",
-        //   min: { value: 1, message: "Amount must be at least 1" },
-        }}
+        rules={{ required: "Please enter any liabilities." }}
         render={({ field }) => (
           <FormInput
             label="Liabilities"
@@ -125,16 +137,17 @@ const CriticalIllness = ({ control, errors }: any) => {
           />
         )}
       />
+
+      {/* Existing Support */}
       <Controller
         name="existingSupport"
         control={control}
         rules={{
           required: "Please enter any support",
-          min: { value: 1, message: "Amount must be at least 1" },
         }}
         render={({ field }) => (
           <FormInput
-            label="Exisiting CI Support"
+            label="Existing CI Support"
             type="text"
             placeholder=""
             {...field}
@@ -142,6 +155,8 @@ const CriticalIllness = ({ control, errors }: any) => {
           />
         )}
       />
+
+      {/* Total Amount Needed */}
       <Controller
         name="totalAmountNeeded"
         control={control}
@@ -155,12 +170,12 @@ const CriticalIllness = ({ control, errors }: any) => {
             type="number"
             placeholder="Enter amount"
             {...field}
-            error={errors.amountNeeded}
+            error={errors.totalAmountNeeded}
           />
         )}
       />
     </div>
-  )
-}
+  );
+};
 
-export default CriticalIllness
+export default CriticalIllness;

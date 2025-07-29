@@ -137,14 +137,14 @@ export function LoginForm({
                       {...field}
                       error={errors.password}
                     />
-                    <button
+                    {/* <button
                       type="button"
                       onClick={togglePasswordVisibility}
                       className="absolute right-3 top-[38px] text-gray-500 hover:text-black"
                       tabIndex={-1}
                     >
                       {showPassword ? <EyeOffIcon size={18} /> : <EyeIcon size={18} />}
-                    </button>
+                    </button> */}
                   </div>
                 )}
               />

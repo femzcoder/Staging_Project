@@ -4,7 +4,7 @@ import * as React from "react"
 import { ChevronDown, Link2, MapPin } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
-import { BasicCard, InsightWarningCard } from "@/components/Cards"
+import { BasicCard } from "@/components/Cards"
 import { CollapsibleCard } from "@/components/CollapsibleCard"
 import { DropdownMenuGroup } from "@radix-ui/react-dropdown-menu"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"

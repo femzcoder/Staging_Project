@@ -12,7 +12,7 @@ import { ChevronDown } from 'lucide-react'
 import React, { useState } from 'react'
 import { ScheduleCard } from './ScheduleCard'
 
-const page = () => {
+const Almanac = () => {
     const [date, setDate] = useState<Date | undefined>(new Date())
   return (
     <div className='p-4 space-y-6'>
@@ -28,7 +28,7 @@ const page = () => {
                 </DropdownMenuTrigger>
                 <DropdownMenuContent className="border border-[#DEE2E6] shadow w-[120px] bg-white rounded-2xl" align="start">
                     <DropdownMenuGroup>
-                        <DropdownMenuItem onClick={()=>{(true)}}>
+                        <DropdownMenuItem onClick={()=>{}}>
                             Audio
                         </DropdownMenuItem>
                         <Separator/>
@@ -53,7 +53,7 @@ const page = () => {
                 </DropdownMenuTrigger>
                 <DropdownMenuContent className="border border-[#DEE2E6] shadow w-[120px] bg-white rounded-2xl" align="start">
                     <DropdownMenuGroup>
-                        <DropdownMenuItem onClick={()=>{(true)}}>
+                        <DropdownMenuItem onClick={()=>{}}>
                             Audio
                         </DropdownMenuItem>
                         <Separator/>
@@ -98,4 +98,4 @@ const page = () => {
   )
 }
 
-export default page
+export default Almanac

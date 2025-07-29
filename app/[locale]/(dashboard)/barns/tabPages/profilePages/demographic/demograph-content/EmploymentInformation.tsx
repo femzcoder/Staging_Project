@@ -8,7 +8,7 @@ type FormValues = {
 }
 
 type Props = {
-  register: UseFormRegister<any>
+  register: UseFormRegister<FormValues>
   errors: FieldErrors<FormValues>
 }
 

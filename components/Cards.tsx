@@ -12,6 +12,13 @@ export const BasicCard = ({ children, style }: { children: React.ReactNode, styl
     </div>
   );
 }
+export const BasicCard2 = ({ children, style }: { children: React.ReactNode, style?: string }) => {
+  return (
+    <div className={`bg-white border border-[#F2F1F1] rounded-2xl p-3 md:p-6 ${style}`}>
+      {children}
+    </div>
+  );
+}
 
 export const InsightWarningCard = ({ title, flag, showCTA, isPurple, handleDismiss, handleProceed}: { title: string, icon: React.ReactNode, flag?: string, showCTA?:boolean, isPurple?:boolean, handleDismiss?:()=>void, handleProceed?:()=>void }) => {
   return (

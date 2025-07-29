@@ -2,7 +2,7 @@
 
 import { redirect, useParams } from 'next/navigation'
 
-const page = () => {
+const MainPage = () => {
     const params = useParams()
     const currentLang = params?.locale as string;
   return (
@@ -10,4 +10,4 @@ const page = () => {
   )
 }
 
-export default page
+export default MainPage

@@ -6,6 +6,8 @@ import { cn } from "@/lib/utils"
 import { FieldError } from "react-hook-form"
 import PhoneInput from "react-phone-number-input/input"
 import 'react-phone-number-input/style.css'
+import React, { useState } from "react"
+import { EyeIcon, EyeOffIcon } from "lucide-react"
 
 interface BaseProps {
   label: string
@@ -30,28 +32,52 @@ export const FormInput = ({
   isImportant = false,
   type = "text",
   ...props
-}: InputProps) => (
-  <div className="space-y-2">
-    <Label htmlFor={name}>{label}{isImportant && <span className="text-sm font-bold text-red-600">*</span>}</Label>
-    <Input
-      id={name}
-      name={name}
-      type={type}
-      className={cn(
-        "border border-[#F2F1F1] outline-0 rounded-[8px] outline-none focus-visible:ring-2 focus-visible:ring-ring bg-[#F2F1F1]",
-        error && "border-destructive",
-        className
+}: InputProps) => {
+  const [showPassword, setShowPassword] = useState(false)
+  const isPassword = type === "password"
+
+  return (
+    <div className="space-y-2 relative">
+      <Label htmlFor={name}>
+        {label}
+        {isImportant && <span className="text-sm font-bold text-red-600">*</span>}
+      </Label>
+      <Input
+        id={name}
+        name={name}
+        type={isPassword && !showPassword ? "password" : "text"}
+        className={cn(
+          "border border-[#F2F1F1] outline-0 rounded-[8px] outline-none focus-visible:ring-2 focus-visible:ring-ring bg-[#F2F1F1]",
+          error && "border-destructive",
+          className
+        )}
+        aria-invalid={!!error}
+        {...props}
+      />
+      {isPassword && (
+        <button
+          type="button"
+          className="absolute right-3 top-[30px] text-xs text-gray-600"
+          onClick={() => setShowPassword((prev) => !prev)}
+          tabIndex={-1}
+        >
+          {showPassword ? <EyeOffIcon/> : <EyeIcon/>}
+        </button>
       )}
-      aria-invalid={!!error}
-      {...props}
-    />
-    {error ? (
-      <p className="text-[12px] text-red-600">{error.message}</p>
-    ) : helperText ? (
-      <p className="text-[12px] text-muted-foreground">{helperText}</p>
-    ) : null}
-  </div>
-)
+      {error
+        ? (
+          <p className="text-[12px] text-red-600">
+            {typeof error === "string" ? error : error?.message}
+          </p>
+        )
+        : helperText
+          ? (
+            <p className="text-[12px] text-muted-foreground">{helperText}</p>
+          )
+          : null}
+    </div>
+  )
+}
 
 interface SelectInputProps extends BaseProps {
   options: { label: string; value: string }[]

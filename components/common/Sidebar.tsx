@@ -29,20 +29,21 @@ const sidebarData = [
   { title: "Bank", link: "bank", icon: <Banknote size={18} /> },
   { title: "Wallet", link: "wallet", icon: <Wallet size={18} /> },
   { title: "Townhall", link: "townhall", icon: <Landmark size={18} /> },
+  { title: "Community", link: "community", icon: <Landmark size={18} /> },
 ];
   return (
     <aside className={`
-      fixed top-0 left-0 h-full w-48 bg-[#FAFAF9] text-white shadow-md 
+      fixed top-0 left-0 h-full w-48 bg-[#fff] text-white shadow-md 
       transform transition-transform duration-300 z-50
       ${isOpen ? 'translate-x-0' : '-translate-x-full'} 
       lg:translate-x-0 md:fixed z-[99999]
     `}>
       <div className="p-4 font-bold text-lg flex items-center">
         <Image 
-          src="/icons/Logo.png" 
+          src="/icons/Logo-dark.png" 
           alt="Logo" 
-          width={32} 
-          height={32} 
+          width={100} 
+          height={100} 
           className="mr-2"
         />
       </div>
