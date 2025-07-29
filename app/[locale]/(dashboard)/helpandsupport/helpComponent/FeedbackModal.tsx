@@ -1,5 +1,7 @@
 
 import { FormSelect, FormTextArea } from "@/components/common/FormInput"
+import { FileUpload } from "@/components/FileUpload"
+import { TitleText } from "@/components/Typo"
 import { Button } from "@/components/ui/button"
 import { Dialog, DialogContent,  DialogFooter,  DialogHeader } from "@/components/ui/dialog"
 import { ArrowLeft } from "lucide-react"
@@ -17,6 +19,12 @@ function FeedbackModal({
     description: "",
     memberId:'0000',
   })
+
+  const [selectedFile, setSelectedFile] = useState<File | null>(null);
+
+  const handleFileUpload = (file: File | null) => {
+    setSelectedFile(file);
+  };
 
   const handleChange = (field: string, value: string) => {
     setProfileData((prev) => ({
@@ -68,6 +76,8 @@ function FeedbackModal({
               ]}
             />
 
+          
+
             <FormTextArea
               label="Description"
               name="description"
@@ -77,7 +87,20 @@ function FeedbackModal({
             //   helperText="Add a description"
             />
 
-            <div>
+            <div className="px-20 mb-6">
+              <TitleText text="Attachments"/>
+
+              <FileUpload
+                label="Drag and drop a file here "
+                accept=".pdf,.jpg,.png"
+                onFileSelect={handleFileUpload}
+              />
+
+              {selectedFile && (
+                <div className="text-sm text-center text-gray-700">
+                  Selected: <strong>{selectedFile.name}</strong>
+                </div>
+              )}
 
             </div>
 

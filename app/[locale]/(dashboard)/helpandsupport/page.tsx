@@ -1,12 +1,12 @@
 'use client'
 
-import { TitleText } from '@/components/Typo'
 import { ChevronRight} from 'lucide-react'
 import Image from 'next/image'
 import React, { useState } from 'react'
 import { BasicCard2 } from '@/components/Cards'
 import ResorcesModal from './helpComponent/Resources'
 import FeedbackModal from './helpComponent/FeedbackModal'
+import UserProfileDetails from '@/components/UserProfileDetails'
 
 const SettingsAndPrivacy = () => {
     const [openResource, setOpenResource] = useState(false)
@@ -30,15 +30,11 @@ const SettingsAndPrivacy = () => {
   return (
     // <AssistantContainer>
     <>
-        <div className='p-6 space-y-2'>
-            <span className='text-[#2D2D2D]'>Settings & Privacy</span>
+        <div className='p-6 space-y-4'>
+            <span className='text-[#2D2D2D] mb-6'>Settings & Privacy</span>
 
-            <div>
-                <TitleText text='David Shepherd' style='text-[#2D2D2D] text-lg font-medium' />
-                <span className='text-[#2D2D2D] text-sm block'>@Y!elds ID: 000011</span>
-                <span className='text-[#2D2D2D] text-sm'>Member since 17 January 2021</span>
+            <UserProfileDetails />
 
-            </div>
 
             <div className='p-2 rounded-[8px] space-y-4'>
                 {

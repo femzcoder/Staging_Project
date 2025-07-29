@@ -46,7 +46,11 @@ function ResorcesModal({
                     <ul className="list-disc">
                       <li className="flex flex-col">
                         <span>Article 1</span>
-                        <a href="https://onetime.com"><BlueText text='https://onetime.com' /></a>
+                        <a href="https://onetime.com"><BlueText style='font-semibold' text='https://onetime.com' /></a>
+                      </li>
+                      <li className="flex flex-col">
+                        <span>Article 2</span>
+                        <a href="https://onetime.com"><BlueText style='font-semibold' text='https://onetime.com' /></a>
                       </li>
                     </ul>
 
@@ -58,13 +62,13 @@ function ResorcesModal({
                       <p>Tutorials</p>
                     </div>
                   </AccordionTrigger>
-                  <AccordionContent className="flex flex-col gap-4 text-balance px-4">
+                  <AccordionContent className="flex flex-col gap-4 text-balance ">
                     <div>
                         <BasicCard2 style="flex items-center gap-2 ">
                           <Image
-                            src ={''}
-                            width={10}
-                            height={10}
+                            src ={'/icons/tutorial-icon.svg'}
+                            width={20}
+                            height={30}
                             alt=""
                           />
                           <div>

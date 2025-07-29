@@ -1,6 +1,5 @@
 import { useRef } from "react";
 import { cn } from "@/lib/utils";
-import { Upload } from "lucide-react";
 import { Button } from "./ui/button";
 
 interface FileUploadProps {
@@ -25,19 +24,25 @@ export const FileUpload = ({
 
   return (
     <div className="space-y-2">
-      {label && <label className="text-sm font-medium">{label}</label>}
+
       <div
         className={cn(
-          "flex items-center justify-center w-full px-4 py-3 border border-dashed rounded-lg cursor-pointer hover:bg-gray-50 transition",
+          "flex  flex-col items-center gap-2 justify-center w-full px-4 py-3 border border-dashed border-[#DCC9A7] rounded-2xl cursor-pointer hover:bg-gray-50 transition",
           error && "border-destructive"
         )}
         onClick={() => fileInputRef.current?.click()}
       >
-        <Upload className="w-5 h-5 mr-2 text-gray-500" />
+        {label && <label className="text-sm font-medium">{label}</label>}
+        <span className="text-xs text-center text-gray-500">Supports: Images (JPEG, PNG, GIF), PDF, Max file size: 5MB</span>
+        
+        
         <Button
           variant="default"
-            className="rounded-[3xl]"
-            >Browse</Button>
+          className="text-white rounded-[3xl]"
+          type="button"
+        >
+          Browse
+        </Button>
         {/* <span className="text-gray-600 text-sm">Browse</span> */}
       </div>
       <input
