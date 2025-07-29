@@ -1,4 +1,4 @@
-import { FormInput, FormPhoneInput } from "@/components/common/FormInput"
+import { FormInput } from "@/components/common/FormInput"
 import { TitleText } from "@/components/Typo"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
 import { Button } from "@/components/ui/button"
@@ -6,7 +6,7 @@ import { Dialog, DialogContent,  DialogFooter,  DialogHeader } from "@/component
 import { ArrowLeft } from "lucide-react"
 import { useState } from "react"
 
-function ParticularsModal({
+function SubscriptionModal({
   open,
   onOpenChange,
 }: {
@@ -46,13 +46,13 @@ function ParticularsModal({
         <DialogHeader className="bg-[#FAFAF9] shadow-xl py-2">
           <div className="flex items-center gap-1 px-4">
             <ArrowLeft onClick={() => onOpenChange(false)} className="cursor-pointer" />
-            <h3 className="text-sm font-semibold">Profile</h3>
+            <h3 className="text-sm font-semibold">Subscriptions</h3>
           </div>
         </DialogHeader>
 
         <div className="p-6 space-y-4 overflow-y-auto">
           <TitleText
-            text="Control what your community sees"
+            text="View your subscription plan & payment method below."
             style="text-[#2D2D2D] text-lg font-medium"
           />
 
@@ -65,39 +65,50 @@ function ParticularsModal({
                 <AccordionItem className="border-none space-y-3" value={`item-1`}>
                   <AccordionTrigger className="border shadow-lg border-[#F2F1F1] rounded-[12px] px-3">
                     <div>
-                      <p>Contact Information</p>
+                      <p>Plan Details</p>
                     </div>
                   </AccordionTrigger>
                   <AccordionContent className="flex flex-col gap-4 text-balance px-4">
-                    <FormPhoneInput
-                      label="Primary Phone Number"
-                      name="phone"
-                      value={profileData.phone}
-                      onChange={(value) => handleChange("phone", value || "")}
-                      placeholder="Enter phone number"
-                    />
-
-                    <FormPhoneInput
-                      label="Alternate Phone Number"
-                      name="alt_phone"
-                      value={profileData.alt_phone}
-                      onChange={(value) => handleChange("alt_phone", value || "")}
-                      placeholder="Enter alternate phone number"
-                    />
-
-
                       <FormInput
                       name="l_name"
-                      type="email"
-                      label="Primary Email"
+                      type="text"
+                      label="Plan Name"
+                      value={profileData.email}
+                      onChange={(e) => handleChange("l_name", e.target.value)}
+                      />
+                      <FormInput
+                      name="l_name"
+                      type="text"
+                      label="Plan Effective Period"
+                      value={profileData.email}
+                      onChange={(e) => handleChange("l_name", e.target.value)}
+                      />
+                      <FormInput
+                      name="l_name"
+                      type="text"
+                      label="Plan Status"
+                      value={profileData.email}
+                      onChange={(e) => handleChange("l_name", e.target.value)}
+                      />
+                      <FormInput
+                      name="l_name"
+                      type="text"
+                      label="Plan Type"
+                      value={profileData.email}
+                      onChange={(e) => handleChange("l_name", e.target.value)}
+                      />
+                      <FormInput
+                      name="l_name"
+                      type="text"
+                      label="Plan Location"
                       value={profileData.email}
                       onChange={(e) => handleChange("l_name", e.target.value)}
                       />
 
                       <FormInput
                       name="d_name"
-                      type="email"
-                      label="Alternate Email"
+                      type="text"
+                      label="Plan Price"
                       value={profileData.alt_email}
                       onChange={(e) => handleChange("d_name", e.target.value)}
                       />
@@ -109,14 +120,35 @@ function ParticularsModal({
                 <AccordionItem className="border-none space-y-3" value={`item-2`}>
                   <AccordionTrigger className="border shadow-lg border-[#F2F1F1] rounded-[12px] px-3">
                     <div>
-                      <p>Professional Information</p>
+                      <p>Payment Details</p>
                     </div>
                   </AccordionTrigger>
                   <AccordionContent className="flex flex-col gap-4 text-balance px-4">
                       <FormInput
                       name="id"
                       type="text"
-                      label="Employment Type"
+                      label="Last Payment Amount"
+                      value={profileData.id}
+                      disabled={true}
+                      />
+                      <FormInput
+                      name="id"
+                      type="text"
+                      label="Last Payment Date"
+                      value={profileData.id}
+                      disabled={true}
+                      />
+                      <FormInput
+                      name="id"
+                      type="text"
+                      label="Next Payment Amount"
+                      value={profileData.id}
+                      disabled={true}
+                      />
+                      <FormInput
+                      name="id"
+                      type="text"
+                      label="Next Payment Date"
                       value={profileData.id}
                       disabled={true}
                       />
@@ -124,7 +156,7 @@ function ParticularsModal({
                       <FormInput
                       name="f_name"
                       type="text"
-                      label="License Number"
+                      label="Payment Mode"
                       value={profileData.f_name}
                       onChange={(e) => handleChange("f_name", e.target.value)}
                       />
@@ -132,7 +164,7 @@ function ParticularsModal({
                       <FormInput
                       name="l_name"
                       type="text"
-                      label="Company"
+                      label="Payment Method"
                       value={profileData.l_name}
                       onChange={(e) => handleChange("l_name", e.target.value)}
                       />
@@ -140,18 +172,11 @@ function ParticularsModal({
                       <FormInput
                       name="d_name"
                       type="text"
-                      label="Title"
+                      label="Bank Account Number"
                       value={profileData.d_name}
                       onChange={(e) => handleChange("d_name", e.target.value)}
                       />
 
-                      <FormInput
-                      name="bio"
-                      type="text"
-                      label="Department"
-                      value={profileData.bio}
-                      onChange={(e) => handleChange("bio", e.target.value)}
-                      />
 
 
 
@@ -164,13 +189,10 @@ function ParticularsModal({
           </form> */}
 
             <DialogFooter>
-              <div className="flex justify-between items-center w-full">
-                <Button type="button" variant={'secondary'}>Cancel</Button>
 
                 <Button className="text-white rounded-[8px]" type="submit">
-                  Update Profile
+                  Upgrade
                 </Button>
-              </div>
 
             </DialogFooter>
 
@@ -180,4 +202,4 @@ function ParticularsModal({
   )
 }
 
-export default ParticularsModal
+export default SubscriptionModal

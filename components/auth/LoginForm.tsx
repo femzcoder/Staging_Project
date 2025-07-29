@@ -12,9 +12,8 @@ import {
   CardTitle,
 } from "@/components/ui/card"
 import { FormInput } from "../common/FormInput"
-import { EyeIcon, EyeOffIcon } from "lucide-react"
 import Link from "next/link"
-import { useParams } from "next/navigation"
+import { redirect, useParams } from "next/navigation"
 import Image from "next/image"
 
 type LoginFormInputs = {
@@ -35,9 +34,6 @@ export function LoginForm({
   const params = useParams()
   const currentLang = params?.locale as string;
   const [loading, setLoading] = useState(false)
-  const [showPassword, setShowPassword] = useState(false)
-
-  const togglePasswordVisibility = () => setShowPassword((prev) => !prev)
 
   const validatePasswordStrength = (value: string) => {
     const strongRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{8,}$/
@@ -48,33 +44,9 @@ export function LoginForm({
 
   const onSubmit = async (data: LoginFormInputs) => {
     setLoading(true)
+    console.log(data)
 
-    try {
-      // Simulate API call
-      const res = await fetch("/api/login", {
-        method: "POST",
-        body: JSON.stringify(data),
-        headers: {
-          "Content-Type": "application/json",
-        },
-      })
-
-      if (!res.ok) {
-        throw new Error("Login failed")
-      }
-
-      const result = await res.json()
-      console.log("Login successful:", result)
-
-      // Simulate redirect or token storage
-      // router.push("/dashboard")
-
-    } catch (err) {
-      console.error("Login error:", err)
-      alert("Login failed. Please check your credentials.")
-    } finally {
-      setLoading(false)
-    }
+    redirect(`/${currentLang}/${'community'}`)
   }
 
   return (
@@ -133,7 +105,7 @@ export function LoginForm({
                   <div className="relative">
                     <FormInput
                       label="Password"
-                      type={showPassword ? "text" : "password"}
+                      type={'password'}
                       {...field}
                       error={errors.password}
                     />

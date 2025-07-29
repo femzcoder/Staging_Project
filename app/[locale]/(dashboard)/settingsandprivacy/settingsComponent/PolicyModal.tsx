@@ -1,11 +1,6 @@
-import { FormInput } from "@/components/common/FormInput"
-import { TitleText } from "@/components/Typo"
-import { Button } from "@/components/ui/button"
-import { Dialog, DialogContent, DialogFooter, DialogHeader } from "@/components/ui/dialog"
+
+import { Dialog, DialogContent, DialogHeader } from "@/components/ui/dialog"
 import { ArrowLeft, X } from "lucide-react"
-import { Formik, Form } from "formik"
-import { z } from "zod"
-import { toFormikValidationSchema } from "zod-formik-adapter"
 import { BasicCard2 } from "@/components/Cards"
 import Image from "next/image"
 
@@ -24,33 +19,33 @@ function PolicyModal({
         <DialogHeader className="bg-[#FAFAF9] shadow-xl py-2">
           <div className="flex items-center gap-1 px-4">
             <ArrowLeft onClick={() => onOpenChange(false)} className="cursor-pointer" />
-            <h3 className="text-sm font-semibold">Profile</h3>
+            <h3 className="text-sm font-semibold">Policy</h3>
           </div>
         </DialogHeader>
 
         <div className="p-6 space-y-4 overflow-y-auto">
 
-          <div className="px-1 py-2 shadow-md">
+          <div className="px-1 py-2">
             <p className="font-semibold text-[#2D2D2D]">Access User Agreements, Platform Terms <br/> and Conditions, and other policies in one place</p>
           </div>
 
-         <div>
+         <div className="space-y-2">
             <BasicCard2 style="flex justify-between items-center">
                 <div className="flex items-center gap-2">
-                    <Image src="/icons/pdf-icon.svg" alt="Terms" width={100} height={100} />
-                    <span>Terms of Service</span>
+                    <Image src="/icons/pdf-icon.svg" alt="Terms" width={20} height={30} />
+                    <span className="text-sm">Terms of Service</span>
                 </div>
                 <div>
-                    <span>313KB <X /></span>
+                    <span className="flex items-center gap-2 text-sm">313KB <X size={14} /></span>
                 </div>
             </BasicCard2>
             <BasicCard2 style="flex justify-between items-center">
                 <div className="flex items-center gap-2">
-                    <Image src="/icons/pdf-icon.svg" alt="Terms" width={100} height={100} />
-                    <span>Privacy Policy</span>
+                    <Image src="/icons/pdf-icon.svg" alt="Terms" width={20} height={30} />
+                    <span className="text-sm">Privacy Policy</span>
                 </div>
                 <div>
-                    <span>313KB <X /></span>
+                    <span className="flex items-center gap-2 text-sm">313KB <X size={14} /></span>
                 </div>
             </BasicCard2>
          </div>

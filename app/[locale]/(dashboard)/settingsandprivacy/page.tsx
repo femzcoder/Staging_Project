@@ -1,14 +1,14 @@
 'use client'
 
-import { TitleText } from '@/components/Typo'
 import { ChevronRight} from 'lucide-react'
 import Image from 'next/image'
 import React, { useState } from 'react'
 import ProfileModal from './settingsComponent/ProfileModal'
 import ParticularsModal from './settingsComponent/ParticularsModal'
 import PasswordModal from './settingsComponent/PasswordModal'
-import { on } from 'events'
 import PolicyModal from './settingsComponent/PolicyModal'
+import SubscriptionModal from './settingsComponent/SubscriptionModal'
+import UserProfileDetails from '@/components/UserProfileDetails'
 
 const SettingsAndPrivacy = () => {
 
@@ -16,6 +16,7 @@ const SettingsAndPrivacy = () => {
     const [openParticulars, setOpenParticulars] = useState<boolean>(false)
     const [openPassword, setOpenPassword] = useState<boolean>(false)
     const [openPolicy, setOpenPolicy] = useState<boolean>(false)
+    const [openSubscription, setOpenSubscription] = useState<boolean>(false)
 
     const settingsOptions=[
         {
@@ -31,7 +32,7 @@ const SettingsAndPrivacy = () => {
         {
             icon:"/icons/Iconssp3.svg",
             title:'Subscriptions',
-            handleClick:()=>{}
+            handleClick:()=>{setOpenSubscription(true)}
         },
         {
             icon:"/icons/Vectorsp4.svg",
@@ -49,14 +50,9 @@ const SettingsAndPrivacy = () => {
     // <AssistantContainer>
     <>
         <div className='p-6 space-y-2'>
-            <span className='text-[#2D2D2D]'>Settings & Privacy</span>
+            <span className='text-[#2D2D2D] mb-4'>Settings & Privacy</span>
 
-            <div>
-                <TitleText text='David Shepherd' style='text-[#2D2D2D] text-lg font-medium' />
-                <span className='text-[#2D2D2D] text-sm block'>@Y!elds ID: 000011</span>
-                <span className='text-[#2D2D2D] text-sm'>Member since 17 January 2021</span>
-
-            </div>
+            <UserProfileDetails />
 
             <div className='p-2 rounded-[8px] space-y-4'>
                 {
@@ -94,6 +90,10 @@ const SettingsAndPrivacy = () => {
         <PolicyModal
             onOpenChange={setOpenPolicy}
             open={openPolicy}
+        />
+        <SubscriptionModal
+            onOpenChange={setOpenSubscription}
+            open={openSubscription}
         />
     </>
 

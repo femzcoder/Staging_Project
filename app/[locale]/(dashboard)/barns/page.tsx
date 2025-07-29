@@ -5,7 +5,7 @@ import React from 'react'
 import Overview from './tabPages/Overview'
 import Prospects from './tabPages/Contacts'
 import Customers from './tabPages/Customers'
-import Partners from './tabPages/Partners'
+// import Partners from './tabPages/Partners'
 import Queue from './tabPages/Partners'
 
 const Barns = () => {

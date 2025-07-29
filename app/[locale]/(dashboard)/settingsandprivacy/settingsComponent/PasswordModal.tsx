@@ -1,5 +1,4 @@
 import { FormInput } from "@/components/common/FormInput"
-import { TitleText } from "@/components/Typo"
 import { Button } from "@/components/ui/button"
 import { Dialog, DialogContent, DialogFooter, DialogHeader } from "@/components/ui/dialog"
 import { ArrowLeft } from "lucide-react"
@@ -30,7 +29,7 @@ function PasswordModal({
         <DialogHeader className="bg-[#FAFAF9] shadow-xl py-2">
           <div className="flex items-center gap-1 px-4">
             <ArrowLeft onClick={() => onOpenChange(false)} className="cursor-pointer" />
-            <h3 className="text-sm font-semibold">Profile</h3>
+            <h3 className="text-sm font-semibold">Password</h3>
           </div>
         </DialogHeader>
 
@@ -62,7 +61,7 @@ function PasswordModal({
                   value={values.currentPassword}
                   onChange={handleChange}
                   onBlur={handleBlur}
-                  // error={touched.currentPassword && errors.currentPassword ? errors.currentPassword : undefined}
+                  error={touched.currentPassword && errors.currentPassword ? errors.currentPassword : undefined}
                 />
 
                 <FormInput
@@ -73,7 +72,7 @@ function PasswordModal({
                   value={values.newPassword}
                   onChange={handleChange}
                   onBlur={handleBlur}
-                  // error={touched.newPassword && errors.newPassword ? errors.newPassword : undefined}
+                  error={touched.newPassword && errors.newPassword ? errors.newPassword : undefined}
                 />
 
                 <FormInput
@@ -84,12 +83,11 @@ function PasswordModal({
                   value={values.confirmPassword}
                   onChange={handleChange}
                   onBlur={handleBlur}
-                  // error={touched.confirmPassword && errors.confirmPassword ? errors.confirmPassword : undefined}
+                  error={touched.confirmPassword && errors.confirmPassword ? errors.confirmPassword : undefined}
                 />
 
                 <DialogFooter className="flex justify-end space-x-2">
-                  <div></div>
-                  <Button className="text-white w-full" type="submit">
+                  <Button className="text-white rounded-[8px]" type="submit">
                     Update Password
                   </Button>
                 </DialogFooter>
