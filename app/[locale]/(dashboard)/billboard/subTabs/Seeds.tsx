@@ -2,9 +2,7 @@ import { BasicCard, EmptyState, InsightWarningCard } from "@/components/Cards";
 import { Grid2Container } from "@/components/Container";
 import CustomSlider from "@/components/CustomSlider";
 import { LinkText, TitleText } from "@/components/Typo";
-import { Link } from "@/i18n/routing";
 import { TrendingCardData } from "@/lib/data";
-import { getTranslations } from "next-intl/server";
 import Image from "next/image";
 import {
   DropdownMenu,
@@ -12,9 +10,6 @@ import {
   DropdownMenuLabel,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
-import {Button} from "@/components/ui/button"
-import { ArrowDown, ChevronDown, Filter, FilterIcon } from "lucide-react";
-import { Arrow } from "@radix-ui/react-select";
 import { AddProspectButton } from "@/components/OtherButtons";
 
 export default function SeedPage() {

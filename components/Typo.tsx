@@ -1,8 +1,38 @@
+import { Check, XIcon } from "lucide-react";
 import Link from "next/link";
 
 export const TitleText = ({text, style}: {text: string, style?: string}) => {
   return (
     <h1 className={`font-bold text-gray-800 dark:text-white ${style}`}>
+      {text}
+    </h1>
+  );
+};
+export const BasicText = ({text, style}: {text: string, style?: string}) => {
+  return (
+    <h1 className={` text-gray-800 dark:text-white ${style}`}>
+      {text}
+    </h1>
+  );
+};
+export const PurpleText = ({text, style}: {text: string, style?: string}) => {
+  return (
+    <h1 className={` text-[#7A003F] dark:text-white ${style}`}>
+      {text}
+    </h1>
+  );
+};
+export const BlueText = ({text, style}: {text: string, style?: string}) => {
+  return (
+    <h1 className={` text-[#007AFF] dark:text-white ${style}`}>
+      {text}
+    </h1>
+  );
+};
+export const TextWithIcon = ({text, icon, style}: {text: string, icon: React.ReactNode, style?: string}) => {
+  return (
+    <h1 className={`flex gap-1 items-center text-gray-800 dark:text-white ${style}`}>
+      {icon}
       {text}
     </h1>
   );
@@ -13,3 +43,15 @@ export const LinkText = ({text, linkUrl, style}: {text: string, linkUrl: string,
     <Link href={linkUrl} className={`text-[#007AFF] ${style}`}>{text}</Link>
   );
 };
+
+export const ActionText = ({title, onCancel, onCheck}:{title:string, onCancel?:()=>void, onCheck?:()=>void })=>{
+  return(
+            <div className="flex justify-between items-center w-full">
+                <h3 className="text-lg font-semibold">{title}</h3>
+                <div className="flex items-center gap-3">
+                    <button onClick={onCancel}><XIcon color="#C58B18"/></button>
+                    <button onClick={onCheck}><Check color="#C58B18"/></button>
+                </div>
+            </div>
+  )
+}
