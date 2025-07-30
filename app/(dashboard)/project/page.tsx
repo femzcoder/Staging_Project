@@ -1,9 +1,9 @@
 import { PrimaryTabContainer } from '@/components/Container';
 import React from 'react'
-import Schedules from './Schedules/page';
+import Schedules from './schedules/page';
 import Projects from './projects/page';
-import Insights from './Insights/page';
-import Actions from './Actions/page';
+import Insights from './insights/page';
+import Actions from './actions/page';
 
 const ProjectView = () => {
   return (

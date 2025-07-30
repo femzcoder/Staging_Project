@@ -2,8 +2,8 @@
 
 import { AssistantContainer } from '@/components/Container'
 import React, {useState} from 'react'
-import Enrich from './subTabs/enrich/page';
-import Engage from './subTabs/engage/page';
+import Enrich from './subtabs/enrich/page';
+import Engage from './subtabs/engage/page';
 
 
 const Barns = () => {

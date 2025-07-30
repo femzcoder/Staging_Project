@@ -1,10 +1,11 @@
 import { Grid2Container } from '@/components/Container'
 import React from 'react'
-import ContestPerformance from './ContestPerformance'
+
 import { DropdownMenu, DropdownMenuContent, DropdownMenuGroup, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
 import { Separator } from '@/components/ui/separator'
-import LeaderBosrd from './LeaderBoard'
 import { FilterButton } from '@/components/OtherButtons'
+import ContestPerformance from './ContestPerformance'
+import LeaderBosrd from './LeaderBoard'
 
 const Leaderboard = () => {
   return (

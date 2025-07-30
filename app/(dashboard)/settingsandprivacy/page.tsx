@@ -3,12 +3,12 @@
 import { ChevronRight} from 'lucide-react'
 import Image from 'next/image'
 import React, { useState } from 'react'
-import ProfileModal from './settingsComponent/ProfileModal'
-import ParticularsModal from './settingsComponent/ParticularsModal'
-import PasswordModal from './settingsComponent/PasswordModal'
-import PolicyModal from './settingsComponent/PolicyModal'
-import SubscriptionModal from './settingsComponent/SubscriptionModal'
+import ParticularsModal from './settingscomponent/ParticularsModal'
+import PasswordModal from './settingscomponent/PasswordModal'
+import PolicyModal from './settingscomponent/PolicyModal'
+import SubscriptionModal from './settingscomponent/SubscriptionModal'
 import UserProfileDetails from '@/components/UserProfileDetails'
+import ProfileModal from './settingscomponent/ProfileModal'
 
 const SettingsAndPrivacy = () => {
 

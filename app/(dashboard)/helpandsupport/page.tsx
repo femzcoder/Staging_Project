@@ -4,8 +4,8 @@ import { ChevronRight} from 'lucide-react'
 import Image from 'next/image'
 import React, { useState } from 'react'
 import { BasicCard2 } from '@/components/Cards'
-import ResorcesModal from './helpComponent/Resources'
-import FeedbackModal from './helpComponent/FeedbackModal'
+import ResorcesModal from './helpcomponent/Resources'
+import FeedbackModal from './helpcomponent/FeedbackModal'
 import UserProfileDetails from '@/components/UserProfileDetails'
 
 const SettingsAndPrivacy = () => {

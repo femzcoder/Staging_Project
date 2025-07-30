@@ -13,8 +13,8 @@ import {
 import { MessageSquare, Phone } from 'lucide-react'
 import Image from 'next/image'
 import React from 'react'
-import Demographic from './profilePages/demographic'
-import Needs from './NeedsPages/page'
+import Demographic from './profilepages/demographic'
+import Needs from './needspages/page'
 
 const Customers = () => {
     const [activeProspectCard, setActiveProspectCard] = React.useState('');
