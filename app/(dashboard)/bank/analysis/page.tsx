@@ -1,6 +1,6 @@
 import React from 'react'
 import AnalysisCashFlow from './cashflow/page'
-import AnalysisROS from './returnOnSpend/page'
+import AnalysisROS from './returnonspend/page'
 import AnalysisIncome from './income/page'
 import { SecondaryTabContainer } from '@/components/Container'
 

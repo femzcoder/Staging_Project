@@ -2,9 +2,9 @@
 
 import { PrimaryTabContainerNoAssistant } from '@/components/Container'
 import React from 'react'
-import Announcements from './tabPages/Announcements/page'
-import Leaderboard from './tabPages/Leaderboard/page'
-import Forum from './tabPages/forum/page'
+import Announcements from './tabpages/announcements/page'
+import Leaderboard from './tabpages/leaderboard/page'
+import Forum from './tabpages/forum/page'
 import QuickAdd from '@/components/quickAdd/QuickAdd'
 
 

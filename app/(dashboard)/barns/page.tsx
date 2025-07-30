@@ -2,11 +2,11 @@
 
 import { PrimaryTabContainer } from '@/components/Container'
 import React from 'react'
-import Overview from './tabPages/Overview'
-import Prospects from './tabPages/Contacts'
-import Customers from './tabPages/Customers'
+import Overview from './tabpages/Overview'
+import Prospects from './tabpages/Contacts'
+import Customers from './tabpages/Customers'
 // import Partners from './tabPages/Partners'
-import Queue from './tabPages/Partners'
+import Queue from './tabpages/Partners'
 
 const Barns = () => {
   return (

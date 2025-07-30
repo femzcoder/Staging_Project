@@ -1,6 +1,6 @@
 "use client";
 import TabContainer from "@/components/TabContainer";
-import SeedPage from "./subTabs/Seeds";
+import SeedPage from "./subtabs/Seeds";
 import { AssistantContainer } from "@/components/Container";
 
 export default function Billboard() {

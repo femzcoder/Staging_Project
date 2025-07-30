@@ -1,9 +1,9 @@
 "use client"
 import { useState } from "react"
-import Budget from "./OverviewTabPages/Budget"
-import Cashflow from "./OverviewTabPages/Cashflow"
-import ReturnOnSpend from "./OverviewTabPages/ReturnOnSpend"
-import NewIncome from "./OverviewTabPages/NewIncome"
+import Budget from "./overviewtabpages/Budget"
+import Cashflow from "./overviewtabpages/Cashflow"
+import ReturnOnSpend from "./overviewtabpages/ReturnOnSpend"
+import NewIncome from "./overviewtabpages/NewIncome"
 
 const Overview = () =>{
   const [activeTab, setActiveTab] = useState({ title: 'Budget', content: <Budget/> })
