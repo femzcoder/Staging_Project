@@ -1,9 +1,9 @@
 import { Grid2Container } from '@/components/Container'
 import React from 'react'
-// import ContestPerformance from './ContestPerformance'
+import ContestPerformance from './ContestPerformance'
 import { DropdownMenu, DropdownMenuContent, DropdownMenuGroup, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
 import { Separator } from '@/components/ui/separator'
-// import LeaderBosrd from './LeaderBoard'
+import LeaderBosrd from './LeaderBoard'
 import { FilterButton } from '@/components/OtherButtons'
 
 const Leaderboard = () => {
@@ -41,10 +41,10 @@ const Leaderboard = () => {
 
       <Grid2Container>
         <div>
-          {/* <ContestPerformance/> */}
+          <ContestPerformance/>
         </div>
         <div>
-          {/* <LeaderBosrd/> */}
+          <LeaderBosrd/>
         </div>
           
       </Grid2Container>
