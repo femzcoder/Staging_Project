@@ -239,7 +239,7 @@ export const PrimaryTabContainerNoAssistant = ({ TabData }: PrimaryTabContainerP
 
   return (
       <>
-        <div className="w-full grid grid-cols-4 p-2 bg-[#F2F1F1]">
+        <div className="w-full grid grid-cols-2 md:grid-cols-4 p-2 bg-[#F2F1F1]">
           {TabData.map((tab, index) => (
             <button
               onClick={() => setActiveTab(tab)}

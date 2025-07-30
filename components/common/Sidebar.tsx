@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { usePathname, useParams } from "next/navigation";
+import { usePathname } from "next/navigation";
 import { Home, TreePine, Calendar, Megaphone, Warehouse, Hammer, ShoppingCart, Banknote, Wallet, Landmark } from "lucide-react";
 
 interface SidebarProps {
@@ -14,11 +14,11 @@ interface SidebarProps {
 
 const Sidebar = ({ isOpen, toggleSidebar }: SidebarProps) => {
   const pathname = usePathname();
-  const params = useParams()
-  const currentLang = params?.locale as string;
+  // const params = useParams()
+  // const currentLang = params?.locale as string;
 
 const sidebarData = [
-  { title: "Home", link: `/${currentLang}`, icon: <Home size={18} /> },
+  { title: "Home", link: `/`, icon: <Home size={18} /> },
   { title: "My Tree", link: "my-tree", icon: <TreePine size={18} /> },
   { title: "Almanac", link: "almanac", icon: <Calendar size={18} /> },
   { title: "Billboard", link: "billboard", icon: <Megaphone size={18} /> },
@@ -50,13 +50,13 @@ const sidebarData = [
 
       <nav className="p-4 space-y-2">
         {sidebarData.map((item, index) => {
-          const fullPath = `/${currentLang}/${item.link}`;
+          const fullPath = `/${item.link}`;
           const isActive = pathname === fullPath;
 
           return (
             <Link 
               key={index} 
-              href={item.title === "Home" ? `/${currentLang}` : fullPath}
+              href={item.title === "Home" ? `/` : fullPath}
               onClick={toggleSidebar}
               className={`flex items-center gap-2 px-2 py-2 rounded-md text-sm 
                 ${isActive ? "rounded-[2rem] primary-button-background text-white" : "text-[#2D2D2D] hover:text-[#C79438]"}`}

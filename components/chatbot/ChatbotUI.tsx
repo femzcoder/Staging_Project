@@ -142,7 +142,7 @@ export default function ChatbotUI({
                 </DropdownMenuTrigger>
                 <DropdownMenuContent className="border border-[#DEE2E6] shadow w-[120px] bg-white rounded-2xl" align="start">
                   <DropdownMenuGroup>
-                    <DropdownMenuItem onClick={()=>{}}>
+                    <DropdownMenuItem  >
                       Message
                     </DropdownMenuItem>
                     <Separator/>
