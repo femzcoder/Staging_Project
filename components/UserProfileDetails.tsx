@@ -25,7 +25,7 @@ const UserProfileDetails = () => {
     <div className='flex items-center gap-4'>
       <div className="relative w-24 h-24 mb-4">
         <Image
-          src="/default-profile.png"
+          src="/icons/EmptyUser.png"
           width={200}
           height={200}
           alt="Profile"
