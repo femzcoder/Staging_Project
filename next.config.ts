@@ -1,52 +1,50 @@
-import type { NextConfig } from "next";
-import withPWAImport from "next-pwa";
-import createNextIntlPlugin from "next-intl/plugin";
 
-const withNextIntl = createNextIntlPlugin();
+import withPWAImport from "next-pwa";
+
 const withPWA = withPWAImport({
   dest: "public",
   disable: false
 });
-const nextConfig: NextConfig = withPWA(withNextIntl({
-async headers() {
-    return [
-      {
-        source: '/(.*)',
-        headers: [
-          {
-            key: 'X-Content-Type-Options',
-            value: 'nosniff',
-          },
-          {
-            key: 'X-Frame-Options',
-            value: 'DENY',
-          },
-          {
-            key: 'Referrer-Policy',
-            value: 'strict-origin-when-cross-origin',
-          },
-        ],
-      },
-      {
-        source: '/sw.js',
-        headers: [
-          {
-            key: 'Content-Type',
-            value: 'application/javascript; charset=utf-8',
-          },
-          {
-            key: 'Cache-Control',
-            value: 'no-cache, no-store, must-revalidate',
-          },
-          {
-            key: 'Content-Security-Policy',
-            value: "default-src 'self'; script-src 'self'",
-          },
-        ],
-      },
-    ]
-  },
+const nextConfig = withPWA({
+  async headers() {
+      return [
+        {
+          source: '/(.*)',
+          headers: [
+            {
+              key: 'X-Content-Type-Options',
+              value: 'nosniff',
+            },
+            {
+              key: 'X-Frame-Options',
+              value: 'DENY',
+            },
+            {
+              key: 'Referrer-Policy',
+              value: 'strict-origin-when-cross-origin',
+            },
+          ],
+        },
+        {
+          source: '/sw.js',
+          headers: [
+            {
+              key: 'Content-Type',
+              value: 'application/javascript; charset=utf-8',
+            },
+            {
+              key: 'Cache-Control',
+              value: 'no-cache, no-store, must-revalidate',
+            },
+            {
+              key: 'Content-Security-Policy',
+              value: "default-src 'self'; script-src 'self'",
+            },
+          ],
+        },
+      ]
+    },
 
-}));
+});
 
-export default withNextIntl(nextConfig);
+export default nextConfig;

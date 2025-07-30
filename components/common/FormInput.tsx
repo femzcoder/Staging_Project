@@ -4,7 +4,7 @@ import { Label } from "@/components/ui/label"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { cn } from "@/lib/utils"
 import { FieldError } from "react-hook-form"
-import PhoneInput from "react-phone-number-input/input"
+import PhoneInput, { Value } from "react-phone-number-input/input"
 import 'react-phone-number-input/style.css'
 import React, { useState } from "react"
 import { EyeIcon, EyeOffIcon } from "lucide-react"
@@ -20,7 +20,14 @@ interface BaseProps {
   parentStyle?:string
 }
 
-interface InputProps extends BaseProps, React.InputHTMLAttributes<HTMLInputElement> {
+interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
+  label: string
+  name: string
+  error?: FieldError
+  helperText?: string
+  isImportant?: boolean
+  className?: string,
+  parentStyle?:string
   type?: "text" | "email" | 'number' | "password" | "date"
 }
 
@@ -118,7 +125,15 @@ export const FormSelect = ({
 )
 
 
-interface TextAreaProps extends BaseProps, React.TextareaHTMLAttributes<HTMLTextAreaElement> {}
+interface TextAreaProps extends React.TextareaHTMLAttributes<HTMLTextAreaElement> {
+    label: string
+  name: string
+  error?: FieldError
+  helperText?: string
+  isImportant?: boolean
+  className?: string,
+  parentStyle?:string
+}
 
 export const FormTextArea = ({
   label,
@@ -239,7 +254,8 @@ export const FormRadioGroup = ({
 interface PhoneInputProps {
   label: string;
   name: string;
-  value: Value;
+  value: string;
+  // value: Value;
   onChange: (value: Value) => void;
   error?: { message: string };
   helperText?: string;

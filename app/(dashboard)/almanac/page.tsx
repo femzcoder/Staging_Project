@@ -1,17 +1,28 @@
-import React from 'react'
-import { BasicCard, InsightWarningCard } from '../Cards'
-import { TitleText } from '../Typo'
+"use client"
+
+
+import { Grid2Container } from '@/components/Container'
+import { FilterButton } from '@/components/OtherButtons'
+import { TitleText } from '@/components/Typo'
+import { Button } from '@/components/ui/button'
+import { Calendar } from '@/components/ui/calendar'
 import { DropdownMenu, DropdownMenuContent, DropdownMenuGroup, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
 import { Separator } from '@/components/ui/separator'
-import { FilterButton } from '../OtherButtons'
-import Image from 'next/image'
+import { ChevronDown } from 'lucide-react'
+import React, { useState } from 'react'
+import { ScheduleCard } from './ScheduleCard'
 
-const PeerComparison = () => {
+const Almanac = () => {
+    const [date, setDate] = useState<Date | undefined>(new Date())
   return (
-    <BasicCard style='space-y-6'>
+    <div className='p-4 space-y-6'>
         <div className='flex justify-between items-center'>
-            <TitleText text='Peer Comparison'/>
-            <DropdownMenu>
+            <div className="mb-10">
+                <h3 className="font-[400]">Welcome</h3>
+                <TitleText text="David Shepard" style="gradient-text font-[800] text-[20px]" />
+            </div>
+            <div className="flex items-center gap-3">
+                <DropdownMenu>
                 <DropdownMenuTrigger asChild>
                     <FilterButton type='button' text='This Month'/>
                 </DropdownMenuTrigger>
@@ -34,22 +45,11 @@ const PeerComparison = () => {
                     </DropdownMenuGroup>
                 </DropdownMenuContent>
                 </DropdownMenu>
-        </div>
 
-        <InsightWarningCard
-            showCTA={false}
-            isPurple={true}
-            flag='Alert'
-            title="You have only engaged 10% of your contacts and 2 contacts have terminated their policies" 
-            icon={<Image src="/icons/insightIcon.png" alt="Insight Icon" width={24} height={24} />} />  
 
-        <BasicCard style=" border border-[#E7E5E4]">
-          <div className="mb-6 flex items-center justify-end w-full">
-            
-
-            <DropdownMenu>
+                <DropdownMenu>
                 <DropdownMenuTrigger asChild>
-                    <FilterButton type='button' text='Age'/>
+                    <Button variant="default" size={"sm"} className='text-white rounded-3xl'>Quick Add <ChevronDown size="white"/></Button>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent className="border border-[#DEE2E6] shadow w-[120px] bg-white rounded-2xl" align="start">
                     <DropdownMenuGroup>
@@ -70,13 +70,32 @@ const PeerComparison = () => {
                     </DropdownMenuGroup>
                 </DropdownMenuContent>
                 </DropdownMenu>
+            </div>
+        </div>
 
+        <div>
+            <Calendar
+                mode="single"
+                selected={date}
+                onSelect={setDate}
+                className="rounded-md border shadow-sm"
+                captionLayout="dropdown"
+            />
+        </div>
 
-          </div>
-            <Image src="/images/Graph.png" alt="Peer Comparison" width={300} height={200} className="w-full h-auto mb-4" />
-        </BasicCard>
-    </BasicCard>
+        <div>
+            <TitleText text='Schedules'/>
+            <Grid2Container>
+                <div>
+                    <ScheduleCard/>
+                </div>
+                <div>
+                    <ScheduleCard/>
+                </div>
+            </Grid2Container>
+        </div>
+    </div>
   )
 }
 
-export default PeerComparison
+export default Almanac

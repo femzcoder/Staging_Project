@@ -19,14 +19,14 @@ const DatabaseHealth = () => {
                 </DropdownMenuTrigger>
                 <DropdownMenuContent className="border border-[#DEE2E6] shadow w-[120px] bg-white rounded-2xl" align="start">
                     <DropdownMenuGroup>
-                        <DropdownMenuItem onClick={()=>{}}>
+                        <DropdownMenuItem  >
                             Audio
                         </DropdownMenuItem>
                         <Separator/>
                         <DropdownMenuItem>
                             Camera
                         </DropdownMenuItem>
-                        <DropdownMenuItem onClick={()=>{}}>
+                        <DropdownMenuItem  >
                             Upload
                         </DropdownMenuItem>
                         <Separator/>

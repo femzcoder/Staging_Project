@@ -2,7 +2,7 @@ import React from 'react'
 import { TitleText } from './Typo'
 import { Avatar, AvatarFallback } from './ui/avatar'
 
-const CustomerItem = ({ind, customerName, amount}:{ind:number, customerName:string, amount:number}) => {
+const LeaderboardItem = ({ind, customerName, country, amount}:{ind:number, customerName:string, country:string, amount:number}) => {
   return (
     <div style={{borderColor:'rgba(0,0,0,0.1)'}} className='flex justify-between items-center border rounded-2xl px-2 py-3'>
         <div className='flex gap-2 items-center'>
@@ -11,18 +11,20 @@ const CustomerItem = ({ind, customerName, amount}:{ind:number, customerName:stri
                 <Avatar className='rounded-full bg-[#f2f2f2]'>
                     <AvatarFallback>CN</AvatarFallback>
                 </Avatar>
-                <TitleText text={customerName}/>
+                <div>
+                     <TitleText text={customerName}/>
+                    <span className='text-[12px] text-[#595657]'>{country}</span>
+                </div>
+               
             </div>
         </div>
 
         <div>
-            <span></span>
-            <TitleText text={`SDG ${String(amount)}`}/>
+            <span className='text-[12px] text-[#595657]'>Points</span>
+            <TitleText text={`${String(amount)}`}/>
         </div>
     </div>
   )
 }
 
-export default CustomerItem
-
-
+export default LeaderboardItem;
