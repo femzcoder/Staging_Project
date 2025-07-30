@@ -36,7 +36,7 @@ const sidebarData = [
       fixed top-0 left-0 h-full w-48 bg-[#fff] text-white shadow-md 
       transform transition-transform duration-300 z-50
       ${isOpen ? 'translate-x-0' : '-translate-x-full'} 
-      lg:translate-x-0 md:fixed z-[99999]
+      lg:translate-x-0 md:fixed z-[50]
     `}>
       <div className="p-4 font-bold text-lg flex items-center">
         <Image 
